@@ -1,0 +1,852 @@
+.ksc-grid {
+    display: grid !important;
+    gap: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    /* テーマ由来のpadding除去 */
+    align-items: stretch !important;
+    grid-auto-rows: 1fr !important;
+    /* 強制的に同じ高さにする */
+}
+
+/* グリッド強制設定 */
+/* グリッド共通スタイル（列数指定は削除） */
+.ksc-grid,
+.ksc-pagination-content .ksc-grid,
+div.ksc-grid {
+    display: grid !important;
+}
+
+/* スマホサイズでは強制的に1列表示 */
+@media (max-width: 768px) {
+
+    .ksc-grid,
+    .ksc-pagination-content .ksc-grid,
+    div.ksc-grid,
+    .ksc-grid.ksc-cols-3,
+    .ksc-grid.ksc-cols-4,
+    .ksc-grid.ksc-cols-5,
+    .ksc-grid.ksc-cols-6 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.ksc-cols-1 {
+    grid-template-columns: 1fr;
+}
+
+.ksc-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.ksc-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.ksc-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.ksc-cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.ksc-cols-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+@media (max-width: 768px) {
+
+    .ksc-cols-3,
+    .ksc-cols-4,
+    .ksc-cols-5,
+    .ksc-cols-6 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .ksc-cols-2,
+    .ksc-cols-3,
+    .ksc-cols-4,
+    .ksc-cols-5,
+    .ksc-cols-6 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ksc-item {
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.ksc-item:hover {
+    transform: translateY(-2px);
+}
+
+/* サムネイルなし・無効時の統一スタイル */
+.ksc-item.ksc-thumbnail-disabled .ksc-content {
+    padding: 20px;
+}
+
+/* サムネイルなしの場合の疑似要素でスペース確保 */
+.ksc-item.ksc-no-thumbnail {
+    position: relative;
+}
+
+/* サムネイルなし項目に実際のサムネイル(.ksc-thumbnail)と100%同じスタイルを適用 */
+.ksc-item.ksc-no-thumbnail::before {
+    content: '';
+    display: block !important;
+    position: relative !important;
+    height: 180px !important;
+    /* カルーセルと同じ高さに統一 */
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    /* 高さが縮まないように固定 */
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+
+}
+
+.ksc-item.ksc-no-thumbnail::after {
+    content: '';
+    display: none;
+}
+
+/* デフォルトサムネイル（上配置） */
+.ksc-thumbnail,
+.ksc-thumbnail-top {
+    display: block;
+    position: relative;
+    padding-top: 0;
+
+    overflow: hidden;
+}
+
+.ksc-thumbnail img,
+.ksc-thumbnail-top img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 左右配置サムネイル共通 */
+.ksc-item.ksc-thumbnail-left,
+.ksc-item.ksc-thumbnail-right {
+    display: flex;
+    gap: 15px;
+}
+
+.ksc-thumbnail-left,
+.ksc-thumbnail-right {
+    flex-shrink: 0;
+    width: 120px;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    padding-top: 0;
+}
+
+.ksc-thumbnail-left img,
+.ksc-thumbnail-right img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 左配置 */
+.ksc-item.ksc-thumbnail-left {
+    flex-direction: row;
+    /* 水平レイアウトに戻す */
+}
+
+.ksc-item.ksc-thumbnail-left .ksc-content {
+    flex: 1;
+    padding: 15px 20px 20px 0;
+    display: block;
+    /* フレックスを無効化 */
+}
+
+/* 右配置 */
+.ksc-item.ksc-thumbnail-right {
+    flex-direction: row-reverse;
+}
+
+.ksc-item.ksc-thumbnail-right .ksc-content {
+    flex: 1;
+    padding: 15px 0 20px 20px;
+    display: block;
+    /* フレックスを無効化 */
+}
+
+/* 上配置のpaddingを維持 */
+.ksc-item.ksc-thumbnail-top .ksc-content {
+    padding: 8px;
+
+}
+
+/* サムネイルなしの場合 */
+.ksc-item:not(.ksc-thumbnail-top):not(.ksc-thumbnail-left):not(.ksc-thumbnail-right) .ksc-content {
+    padding: 8px;
+
+}
+
+/* 左右配置でサムネイルなしの場合 */
+.ksc-item.ksc-no-thumbnail.ksc-thumbnail-left::before,
+.ksc-item.ksc-no-thumbnail.ksc-thumbnail-right::before {
+    width: 120px;
+    height: 80px;
+    padding-top: 0;
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.ksc-item.ksc-no-thumbnail.ksc-thumbnail-left::after,
+.ksc-item.ksc-no-thumbnail.ksc-thumbnail-right::after {
+    top: 40px;
+    /* 80pxの半分 */
+    left: 60px;
+    /* 120pxの半分 */
+    font-size: 1.5em;
+}
+
+.ksc-item.ksc-no-thumbnail.ksc-thumbnail-left,
+.ksc-item.ksc-no-thumbnail.ksc-thumbnail-right {
+    gap: 15px;
+    min-height: auto;
+}
+
+.ksc-item.ksc-no-thumbnail.ksc-thumbnail-left {
+    flex-direction: row;
+}
+
+.ksc-item.ksc-no-thumbnail.ksc-thumbnail-right {
+    flex-direction: row-reverse;
+}
+
+.ksc-item.ksc-no-thumbnail.ksc-thumbnail-left .ksc-content,
+.ksc-item.ksc-no-thumbnail.ksc-thumbnail-right .ksc-content {
+    display: block;
+    /* フレックスを無効化 */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 480px) {
+
+    .ksc-item.ksc-thumbnail-left,
+    .ksc-item.ksc-thumbnail-right,
+    .ksc-item.ksc-no-thumbnail.ksc-thumbnail-left,
+    .ksc-item.ksc-no-thumbnail.ksc-thumbnail-right {
+        flex-direction: column;
+    }
+
+    .ksc-thumbnail-left,
+    .ksc-thumbnail-right {
+        width: 100%;
+        height: 120px;
+    }
+
+    .ksc-item.ksc-no-thumbnail.ksc-thumbnail-left::before,
+    .ksc-item.ksc-no-thumbnail.ksc-thumbnail-right::before {
+        width: 100%;
+        height: 120px;
+        padding-top: 0;
+    }
+
+    .ksc-item.ksc-thumbnail-left .ksc-content,
+    .ksc-item.ksc-thumbnail-right .ksc-content {
+        padding: 15px 20px 20px 20px;
+    }
+}
+
+.ksc-content {
+    padding: 10px;
+
+    flex: 1 1 auto !important;
+    /* 残り空間を埋める、自動伸縮 */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.ksc-title {
+    margin: 0 0 10px;
+    font-size: 1.125em;
+    /* 18px相当をemで */
+    line-height: 1.4;
+    font-weight: bold;
+    /* h3の代わりにdivを使うので太字を明示 */
+}
+
+/* 日付表示がある場合のタイトル調整 */
+.ksc-date-top+.ksc-title {
+    margin-top: 0;
+}
+
+.ksc-title a {
+    text-decoration: none;
+}
+
+.ksc-title a:hover {
+    opacity: 0.7;
+}
+
+.ksc-excerpt {
+    color: inherit;
+    font-size: 0.875em;
+    /* 14px相当をemで */
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+
+
+.ksc-carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.ksc-carousel {
+    position: relative;
+}
+
+.ksc-carousel-inner {
+    display: flex;
+    transition: transform 0.3s ease;
+    gap: 20px;
+}
+
+.ksc-carousel .ksc-item {
+    flex: 0 0 calc((100% - 40px) / 3);
+    /* 3カラムの場合 */
+}
+
+.ksc-carousel.ksc-cols-2 .ksc-item {
+    flex: 0 0 calc((100% - 20px) / 2);
+}
+
+.ksc-carousel.ksc-cols-4 .ksc-item {
+    flex: 0 0 calc((100% - 60px) / 4);
+}
+
+/* 他のカラム数も同様 */
+
+/* カルーセルのレスポンシブ対応 */
+@media (max-width: 768px) {
+
+    .ksc-carousel .ksc-item,
+    .ksc-carousel.ksc-cols-2 .ksc-item,
+    .ksc-carousel.ksc-cols-3 .ksc-item,
+    .ksc-carousel.ksc-cols-4 .ksc-item,
+    .ksc-carousel.ksc-cols-5 .ksc-item,
+    .ksc-carousel.ksc-cols-6 .ksc-item {
+        flex: 0 0 100%;
+    }
+
+    .ksc-carousel-inner {
+        gap: 0;
+    }
+
+    /* カルーセル内の左右配置サムネイルも縦配置に */
+    .ksc-carousel .ksc-item.ksc-thumbnail-left,
+    .ksc-carousel .ksc-item.ksc-thumbnail-right {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    .ksc-carousel .ksc-item.ksc-thumbnail-left .ksc-thumbnail,
+    .ksc-carousel .ksc-item.ksc-thumbnail-right .ksc-thumbnail {
+        width: 100% !important;
+        height: 120px !important;
+    }
+
+    .ksc-carousel .ksc-item.ksc-no-thumbnail.ksc-thumbnail-left::before,
+    .ksc-carousel .ksc-item.ksc-no-thumbnail.ksc-thumbnail-right::before {
+        width: 100% !important;
+        height: 120px !important;
+    }
+}
+
+
+/* === カルーセル左右配置の最終修正 (CSS Grid採用) === */
+
+/* Gridコンテナとしてアイテムを定義 */
+.ksc-carousel .ksc-item.ksc-thumbnail-left,
+.ksc-carousel .ksc-item.ksc-thumbnail-right {
+    display: grid !important;
+    gap: 15px !important;
+    align-items: stretch !important;
+    /* stretchに変更して高さを揃える */
+}
+
+/* カラム構成を定義 */
+.ksc-carousel .ksc-item.ksc-thumbnail-left {
+    grid-template-columns: 100px 1fr !important;
+    /* 左: 100px, 右: 残り */
+}
+
+.ksc-carousel .ksc-item.ksc-thumbnail-right {
+    grid-template-columns: 1fr 100px !important;
+    /* 左: 残り, 右: 100px */
+}
+
+/* サムネイルのスタイル */
+.ksc-carousel .ksc-item .ksc-thumbnail {
+    width: 100px !important;
+    height: 100% !important;
+    /* 高さを100%に変更 */
+    grid-row: 1 / span 1;
+    /* Gridの行を専有 */
+}
+
+.ksc-carousel .ksc-item.ksc-thumbnail-right .ksc-thumbnail {
+    grid-column: 2 / span 1;
+    /* 右配置の場合は2列目 */
+}
+
+.ksc-carousel .ksc-item .ksc-thumbnail img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    /* 美しく切り抜き */
+}
+
+/* サムネイルなしの場合のプレースホルダー */
+.ksc-carousel .ksc-item.ksc-no-thumbnail::before {
+    content: '' !important;
+    display: block !important;
+    width: 100px !important;
+    height: 100% !important;
+    /* 高さを100%に変更 */
+    grid-row: 1 / span 1;
+}
+
+.ksc-carousel .ksc-item.ksc-thumbnail-right.ksc-no-thumbnail::before {
+    grid-column: 2 / span 1;
+    /* 右配置の場合は2列目 */
+}
+
+
+/* コンテンツのスタイル */
+.ksc-carousel .ksc-item .ksc-content {
+    grid-row: 1 / span 1;
+    min-width: 0;
+    /* flex/gridの子要素で幅計算を正しく行うためのおまじない */
+    display: flex;
+    /* flexにして内部要素を制御 */
+    flex-direction: column;
+}
+
+.ksc-carousel .ksc-item.ksc-thumbnail-right .ksc-content {
+    grid-column: 1 / span 1;
+    /* 右配置の場合は1列目 */
+}
+
+/* ページネーションボタンのスタイル */
+.ksc-carousel-prev,
+.ksc-carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ksc-carousel-prev {
+    left: 10px;
+}
+
+.ksc-carousel-next {
+    right: 10px;
+}
+
+.ksc-carousel-prev:hover,
+.ksc-carousel-next:hover {
+    opacity: 0.9;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* === カルーセルでサムネイルが上にある場合のスタイル === */
+.ksc-carousel .ksc-item.ksc-thumbnail-top {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.ksc-carousel .ksc-item.ksc-thumbnail-top .ksc-thumbnail {
+    width: 100% !important;
+    height: 180px !important;
+    /* カルーセル内での高さを指定 */
+    position: relative !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.ksc-carousel .ksc-item.ksc-thumbnail-top .ksc-thumbnail img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+/* サムネイルがない場合のプレースホルダー */
+.ksc-carousel .ksc-item.ksc-thumbnail-top.ksc-no-thumbnail::before {
+    content: '' !important;
+    display: block !important;
+    width: 100% !important;
+    height: 180px !important;
+    /* サムネイルと同じ高さを確保 */
+    flex-shrink: 0 !important;
+}
+
+.ksc-carousel .ksc-item.ksc-thumbnail-top .ksc-content {
+    padding: 15px !important;
+    flex: 1 !important;
+}
+
+/* === グリッドレイアウトのサムネイル表示を再定義 === */
+.ksc-grid .ksc-item .ksc-thumbnail {
+    display: block !important;
+    width: 100% !important;
+    height: 180px !important;
+    /* カルーセルと同じ高さに統一 */
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.ksc-grid .ksc-item .ksc-thumbnail img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+/* グリッドでのサムネイルなしプレースホルダー */
+.ksc-grid .ksc-item.ksc-no-thumbnail::before {
+    content: '' !important;
+    display: block !important;
+    width: 100% !important;
+    height: 180px !important;
+}
+
+/* === グリッドレイアウトのflexbox問題を修正 === */
+.ksc-grid .ksc-item {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    /* 高さを100%に */
+}
+
+.ksc-grid .ksc-item .ksc-content {
+    flex-grow: 1 !important;
+    /* 利用可能なスペースを埋める */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.ksc-grid .ksc-item .ksc-read-more {
+    margin-top: auto !important;
+    /* 最下部に配置 */
+    padding-top: 15px !important;
+    /* 上の要素との間に余白を確保 */
+}
+
+/* === ページネーションのデザインをモダンに修正 === */
+
+.ksc-pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    /* ボタン間のスペースを広げる */
+}
+
+.ksc-pagination-btn {
+    padding: 8px 12px;
+    border-radius: 4px;
+    /* 少し角を丸く */
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+    font-weight: bold;
+    /* 初期状態は非表示 */
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.ksc-pagination-btn:hover:not(:disabled) {
+    opacity: 1;
+}
+
+.ksc-pagination-btn.ksc-pagination-current {
+    opacity: 1;
+    font-weight: bold;
+    /* より明確に選択中を示す */
+    /* より目立つ青い影 */
+    transform: scale(1.05);
+    /* 少し大きく */
+}
+
+/* 数字型ページネーションの非アクティブボタン */
+.ksc-pagination-btn:not(.ksc-pagination-current):not(:disabled) {
+    opacity: 1;
+    font-weight: bold;
+    /* 押せるボタンを濃く表示 */
+}
+
+.ksc-pagination-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    /* 押せないボタンを薄く表示 */
+    font-weight: normal;
+    filter: grayscale(50%);
+    /* より明確なdisabled状態を示す */
+    pointer-events: none;
+    /* クリックイベントを完全に無効化 */
+}
+
+/* ページネーション読み込み中表示 */
+.ksc-pagination-loading {
+    position: relative;
+}
+
+.ksc-pagination-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: ksc-spin 1s linear infinite;
+}
+
+@keyframes ksc-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.ksc-pagination-info {
+    font-size: 0.9em;
+    margin: 0 10px;
+}
+
+.ksc-pagination-dots {
+    padding: 0 5px;
+    user-select: none;
+}
+
+.ksc-pagination-wrapper {
+    position: relative;
+    /* 上下の余白は各コントロールで設定するため、ここではリセット */
+    margin: 0;
+}
+
+.ksc-pagination-top {
+    margin-bottom: 20px;
+    /* 下のコンテンツとの間に余白を追加 */
+}
+
+.ksc-pagination-bottom {
+    margin-top: 20px;
+    /* 上のコンテンツとの間に余白を追加 */
+}
+
+/* === リスト表示のレイアウト修正（サムネイル完全無効化版） === */
+
+/* リスト表示は常にテキストのみのシンプル表示 */
+.ksb-custom-box .ksc-list .ksc-item,
+.wp-block-group .ksc-list .ksc-item,
+.ksc-list .ksc-item {
+    display: block !important;
+    margin-bottom: 25px !important;
+    padding-bottom: 25px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* リスト表示ではサムネイル関連要素を完全に非表示 */
+.ksb-custom-box .ksc-list .ksc-item .ksc-thumbnail,
+.wp-block-group .ksc-list .ksc-item .ksc-thumbnail,
+.ksc-list .ksc-item .ksc-thumbnail,
+.ksb-custom-box .ksc-list .ksc-item.ksc-no-thumbnail::before,
+.wp-block-group .ksc-list .ksc-item.ksc-no-thumbnail::before,
+.ksc-list .ksc-item.ksc-no-thumbnail::before {
+    display: none !important;
+}
+
+/* コンテンツエリア */
+.ksb-custom-box .ksc-list .ksc-item .ksc-content,
+.wp-block-group .ksc-list .ksc-item .ksc-content,
+.ksc-list .ksc-item .ksc-content {
+    width: 100% !important;
+    display: block !important;
+}
+
+/* === ウィザード ステップインジケーター === */
+
+.ksc-wizard .ksc-step-indicator,
+.ksc-step-indicator {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 30px 0 40px 0 !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.ksc-wizard .ksc-step-item,
+.ksc-step-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.ksc-wizard .ksc-step-number,
+.ksc-step-number {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    opacity: 0.5;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    margin-bottom: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.ksc-wizard .ksc-step-label,
+.ksc-step-label {
+    font-size: 12px !important;
+    text-align: center !important;
+    min-width: 80px !important;
+    line-height: 1.2 !important;
+    transition: color 0.3s ease !important;
+}
+
+.ksc-wizard .ksc-step-connector,
+.ksc-step-connector {
+    flex: 1 !important;
+    height: 2px !important;
+    opacity: 0.5;
+    margin: 0 10px !important;
+    position: relative !important;
+    top: -16px !important;
+    z-index: 1 !important;
+    transition: background 0.3s ease !important;
+}
+
+/* アクティブ状態 */
+.ksc-wizard .ksc-step-item.ksc-step-active .ksc-step-number,
+.ksc-step-item.ksc-step-active .ksc-step-number {
+}
+
+.ksc-wizard .ksc-step-item.ksc-step-active .ksc-step-label,
+.ksc-step-item.ksc-step-active .ksc-step-label {
+    font-weight: 600 !important;
+}
+
+/* 完了状態 */
+.ksc-wizard .ksc-step-item.ksc-step-completed .ksc-step-number,
+.ksc-step-item.ksc-step-completed .ksc-step-number {
+}
+
+.ksc-wizard .ksc-step-item.ksc-step-completed .ksc-step-label,
+.ksc-step-item.ksc-step-completed .ksc-step-label {
+}
+
+.ksc-wizard .ksc-step-item.ksc-step-completed+.ksc-step-connector,
+.ksc-step-item.ksc-step-completed+.ksc-step-connector {
+}
+
+/* ホバー効果 */
+.ksc-step-item:not(.ksc-step-active):not(.ksc-step-completed):hover .ksc-step-number {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.ksc-step-item:not(.ksc-step-active):not(.ksc-step-completed):hover .ksc-step-label {
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .ksc-step-indicator {
+        padding: 15px 10px;
+    }
+
+    .ksc-step-number {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .ksc-step-label {
+        font-size: 11px;
+        min-width: 60px;
+    }
+
+    .ksc-step-connector {
+        margin: 0 5px;
+        top: -12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ksc-step-indicator {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .ksc-step-connector {
+        display: none;
+    }
+
+    .ksc-step-item {
+        flex: 1;
+        min-width: calc(33.33% - 10px);
+    }
+}
