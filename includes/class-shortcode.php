@@ -25,6 +25,7 @@ class KSC_Shortcode {
             'show_title' => 'true',
             'title_tag' => 'h2',
             'show_date' => 'true',
+            'show_modified' => 'false',
             'show_author' => 'false',
             'show_excerpt' => 'true',
             'show_category' => 'false',

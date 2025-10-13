@@ -289,6 +289,7 @@ class KSC_Display {
         // 表示オプションの設定
         $show_title = isset($atts['show_title']) ? $atts['show_title'] === 'true' : true;
         $show_date = isset($atts['show_date']) ? $atts['show_date'] === 'true' : true;
+        $show_modified = isset($atts['show_modified']) ? $atts['show_modified'] === 'true' : false;
         $show_author = isset($atts['show_author']) ? $atts['show_author'] === 'true' : false;
         $show_excerpt = isset($atts['show_excerpt']) ? $atts['show_excerpt'] === 'true' : true;
         $show_category = isset($atts['show_category']) ? $atts['show_category'] === 'true' : false;
@@ -350,6 +351,15 @@ class KSC_Display {
                 $formatted_date = get_the_date('Y.m.d', $post->ID);
             }
             echo '<div class="ksc-date-top">' . esc_html($formatted_date) . '</div>';
+        }
+
+        // 更新日の表示
+        if ($show_modified) {
+            $modified_date = get_the_modified_date($date_format, $post->ID);
+            if (empty($modified_date)) {
+                $modified_date = get_the_modified_date('Y.m.d', $post->ID);
+            }
+            echo '<div class="ksc-date-modified">更新日: ' . esc_html($modified_date) . '</div>';
         }
 
         // タイトルの表示

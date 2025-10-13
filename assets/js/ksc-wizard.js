@@ -475,6 +475,7 @@ jQuery(document).ready(function ($) {
         formData.show_title = $('#ksc-show-title').is(':checked') ? 'true' : 'false';
         formData.title_tag = $('#ksc-title-tag').val() || 'h2';
         formData.show_date = $('#ksc-show-date').is(':checked') ? 'true' : 'false';
+        formData.show_modified = $('#ksc-show-modified').is(':checked') ? 'true' : 'false';
         formData.show_author = $('#ksc-show-author').is(':checked') ? 'true' : 'false';
         formData.show_excerpt = $('#ksc-show-excerpt').is(':checked') ? 'true' : 'false';
         formData.show_category = $('#ksc-show-category').is(':checked') ? 'true' : 'false';
@@ -926,7 +927,17 @@ jQuery(document).ready(function ($) {
         code += ");\n\n";
         code += "$query = new WP_Query($args);\n\n";
         code += "if ($query->have_posts()) : ?>\n";
-        
+
+        // カルーセルの場合は投稿数とeffective_colsを計算
+        if (formData.design === 'carousel') {
+            code += "    <?php\n";
+            code += "    // カルーセル用の投稿数とカラム数を計算\n";
+            code += "    $post_count = $query->found_posts;\n";
+            code += "    $cols = " + formData.cols + ";\n";
+            code += "    $effective_cols = min($cols, $post_count);\n";
+            code += "    ?>\n";
+        }
+
         // \u30c7\u30b6\u30a4\u30f3\u306b\u5fdc\u3058\u305f\u30b3\u30f3\u30c6\u30ca
         if (formData.design === 'grid') {
             code += "    <div class=\"ksc-grid ksc-cols-" + formData.cols + "\">\n";
@@ -938,7 +949,9 @@ jQuery(document).ready(function ($) {
             code += "               data-autoplay=\"" + formData.autoplay + "\"\n";
             code += "               data-loop=\"" + formData.loop + "\"\n";
             code += "               data-interval=\"" + formData.interval + "\"\n";
-            code += "               style=\"--ksc-color: " + formData.color + ";\">\n";
+            code += "               data-post-count=\"<?php echo $post_count; ?>\"\n";
+            code += "               data-effective-cols=\"<?php echo $effective_cols; ?>\"\n";
+            code += "               style=\"--ksc-color: " + formData.color + "; --ksc-effective-cols: <?php echo $effective_cols; ?>;\">\n";
             code += "            <div class=\"ksc-carousel-inner\">\n";
         }
         
@@ -979,11 +992,15 @@ jQuery(document).ready(function ($) {
         
         // \u30e1\u30bf\u60c5\u5831
         code += "                    <div class=\"ksc-meta\">\n";
-        
+
         if (formData.show_date === 'true') {
             code += "                        <span class=\"ksc-date\"><?php echo get_the_date('" + formData.date_format + "'); ?></span>\n";
         }
-        
+
+        if (formData.show_modified === 'true') {
+            code += "                        <span class=\"ksc-date-modified\">更新日: <?php echo get_the_modified_date('" + formData.date_format + "'); ?></span>\n";
+        }
+
         if (formData.show_author === 'true') {
             code += "                        <span class=\"ksc-author\"><?php the_author(); ?></span>\n";
         }

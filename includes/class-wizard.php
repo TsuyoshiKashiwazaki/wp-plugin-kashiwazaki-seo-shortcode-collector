@@ -261,6 +261,7 @@ class KSC_Wizard {
         $show_title = isset($_POST['show_title']) ? sanitize_text_field($_POST['show_title']) : 'true';
         $title_tag = isset($_POST['title_tag']) ? sanitize_text_field($_POST['title_tag']) : 'h2';
         $show_date = isset($_POST['show_date']) ? sanitize_text_field($_POST['show_date']) : 'true';
+        $show_modified = isset($_POST['show_modified']) ? sanitize_text_field($_POST['show_modified']) : 'false';
         $show_author = isset($_POST['show_author']) ? sanitize_text_field($_POST['show_author']) : 'false';
         $show_excerpt = isset($_POST['show_excerpt']) ? sanitize_text_field($_POST['show_excerpt']) : 'true';
         $show_category = isset($_POST['show_category']) ? sanitize_text_field($_POST['show_category']) : 'false';
@@ -315,6 +316,9 @@ class KSC_Wizard {
         }
         if ($show_date !== 'true') {
             $params[] = 'show_date="' . $show_date . '"';
+        }
+        if ($show_modified !== 'false') {
+            $params[] = 'show_modified="' . $show_modified . '"';
         }
         if ($show_author !== 'false') {
             $params[] = 'show_author="' . $show_author . '"';
@@ -719,19 +723,17 @@ class KSC_Wizard {
                                     <span>日付</span>
                                 </label>
                                 <label class="ksc-option-item">
+                                    <input type="checkbox" name="show_modified" id="ksc-show-modified">
+                                    <span>更新日</span>
+                                </label>
+                                <label class="ksc-option-item">
                                     <input type="checkbox" name="show_category" id="ksc-show-category">
-                                    <span>カテゴリ</span>
+                                    <span>カテゴリ・分類</span>
                                 </label>
                                 <label class="ksc-option-item">
                                     <input type="checkbox" name="show_author" id="ksc-show-author">
                                     <span>投稿者</span>
                                 </label>
-
-                                <label class="ksc-option-item">
-                                    <input type="checkbox" name="show_category" id="ksc-show-category">
-                                    <span>カテゴリ・分類</span>
-                                </label>
-
                                 <label class="ksc-option-item">
                                     <input type="checkbox" name="show_tags" id="ksc-show-tags">
                                     <span>タグ</span>
