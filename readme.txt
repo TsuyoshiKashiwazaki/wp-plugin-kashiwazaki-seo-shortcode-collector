@@ -4,7 +4,7 @@ Donate link: https://tsuyoshikashiwazaki.jp/
 Tags: shortcode, posts, display, grid, carousel
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -84,6 +84,9 @@ Kashiwazaki Shortcode Collectorは、WordPressの投稿、ページ、カスタ�
 4. カルーセル表示の例
 
 == Changelog ==
+
+= 1.0.2 =
+* Fixed: Modified date display issue in pagination.
 
 = 1.0.1 =
 * Added: 更新日表示機能を追加（show_modifiedパラメータ）

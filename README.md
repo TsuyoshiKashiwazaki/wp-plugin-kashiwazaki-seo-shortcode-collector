@@ -3,7 +3,7 @@
 [![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-blue.svg)](https://wordpress.org/)
 [![PHP](https://img.shields.io/badge/PHP-7.2%2B-purple.svg)](https://php.net/)
 [![License](https://img.shields.io/badge/License-GPL--2.0--or--later-green.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
-[![Version](https://img.shields.io/badge/Version-1.0.1--dev-orange.svg)](https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-shortcode-collector/releases)
+![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)
 
 指定した投稿タイプやカテゴリをショートコードで一括で呼び出すWordPressプラグイン
 
@@ -136,6 +136,9 @@
 - WordPress API（Shortcode API、Settings API）
 
 ## 更新履歴
+
+### Version 1.0.2 - 2025-12-15
+- Fixed: ページネーション切替時に更新日が表示されなくなる問題を修正
 
 ### Version 1.0.1 - 2025-10-13
 - Added: 更新日表示機能を追加（`show_modified`パラメータ）

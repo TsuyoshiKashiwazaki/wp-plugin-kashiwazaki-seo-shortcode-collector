@@ -211,6 +211,11 @@ window.kscPaginationInit = function () {
                             html += '<div class="ksc-date-top">' + post.date + '</div>';
                         }
 
+                        // 更新日の表示
+                        if (atts.show_modified === 'true' && post.modified_date) {
+                            html += '<div class="ksc-date-modified">更新日: ' + post.modified_date + '</div>';
+                        }
+
                         // タイトル
                         if (showTitle) {
                             html += '<' + titleTag + ' class="ksc-title"><a href="' + post.permalink + '" target="' + target + '">' + post.title + '</a></' + titleTag + '>';

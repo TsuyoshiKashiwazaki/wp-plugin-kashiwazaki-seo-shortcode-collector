@@ -574,6 +574,7 @@ class KSC_Display {
                     'thumbnail' => $show_thumbnail ? get_the_post_thumbnail_url($post->ID, $thumbnail_size) : '',
                     'excerpt' => $this->get_post_excerpt($post, intval($atts['description_length'])),
                     'date' => get_the_date($atts['date_format'], $post->ID),
+                    'modified_date' => get_the_modified_date($atts['date_format'], $post->ID),
                     'author' => get_the_author_meta('display_name', $post->post_author) ?: get_the_author_meta('user_login', $post->post_author),
                     'categories' => $this->get_post_categories_data($post),
                     'tags' => $this->get_post_tags_data($post)

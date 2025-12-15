@@ -1,6 +1,10 @@
 # Changelog
 
-## [1.0.1] - 2025-10-13
+## [1.0.2] - 2025-12-15
+### Fixed
+- Fixed an issue where the "modified date" would disappear when using AJAX pagination.
+
+## [1.0.1] - 2025-12-14
 
 ### Added
 - 更新日表示機能を追加（`show_modified`パラメータ）
