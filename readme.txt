@@ -1,4 +1,4 @@
-=== Kashiwazaki Shortcode Collector ===
+=== Kashiwazaki SEO Shortcode Collector ===
 Contributors: tsuyoshikashiwazaki
 Donate link: https://tsuyoshikashiwazaki.jp/
 Tags: shortcode, posts, display, grid, carousel
@@ -13,7 +13,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Kashiwazaki Shortcode Collectorは、WordPressの投稿、ページ、カスタム投稿タイプを美しく表示するための強力なショートコードプラグインです。初心者から上級者まで、誰でも簡単に使える直感的なインターフェースを提供します。
+Kashiwazaki SEO Shortcode Collectorは、WordPressの投稿、ページ、カスタム投稿タイプを美しく表示するための強力なショートコードプラグインです。初心者から上級者まで、誰でも簡単に使える直感的なインターフェースを提供します。
 
 **主な特徴**
 
@@ -61,7 +61,7 @@ Kashiwazaki Shortcode Collectorは、WordPressの投稿、ページ、カスタ�
 
 1. プラグインファイルを `/wp-content/plugins/kashiwazaki-shortcode-collector` ディレクトリにアップロード
 2. WordPressの「プラグイン」メニューからプラグインを有効化
-3. 管理画面の「Kashiwazaki Shortcode Collector」メニューから設定を確認
+3. 管理画面の「Kashiwazaki SEO Shortcode Collector」メニューから設定を確認
 
 == Frequently Asked Questions ==
 

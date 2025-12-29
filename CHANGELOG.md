@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.3] - 2025-12-29
+### Changed
+- サムネイルサイズの選択肢をWordPress標準の名称に変更（フルサイズ、大サイズ、中サイズ、サムネイル）
+- サムネイルサイズのデフォルトを「フルサイズ」に変更
+- READMEと設定・使い方ドキュメントを全面刷新
+
 ## [1.0.2] - 2025-12-15
 ### Fixed
 - Fixed an issue where the "modified date" would disappear when using AJAX pagination.

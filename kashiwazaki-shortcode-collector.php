@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Kashiwazaki Shortcode Collector
+ * Plugin Name: Kashiwazaki SEO Shortcode Collector
  * Plugin URI: https://www.tsuyoshikashiwazaki.jp
  * Description: 指定した投稿タイプやカテゴリをショートコードで一括で呼び出すプラグイン
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: 柏崎剛 (Tsuyoshi Kashiwazaki)
  * Author URI: https://www.tsuyoshikashiwazaki.jp/profile/
  * Text Domain: kashiwazaki-shortcode-collector
@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('KSC_VERSION', '1.0.1');
+define('KSC_VERSION', '1.0.3');
 define('KSC_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('KSC_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('KSC_PLUGIN_BASENAME', plugin_basename(__FILE__));

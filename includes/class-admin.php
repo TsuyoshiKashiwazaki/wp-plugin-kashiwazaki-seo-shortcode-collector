@@ -13,13 +13,13 @@ class KSC_Admin {
 
     public function add_admin_menu() {
         add_menu_page(
-            'Kashiwazaki Shortcode Collector',
-            'Kashiwazaki Shortcode Collector',
+            'Kashiwazaki SEO Shortcode Collector',
+            'Kashiwazaki SEO Shortcode Collector',
             'manage_options',
             'kashiwazaki-shortcode-collector',
             array($this, 'display_admin_page'),
             'dashicons-shortcode',
-            100
+            81
         );
     }
 
@@ -66,7 +66,7 @@ class KSC_Admin {
         $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'settings';
         ?>
         <div class="wrap">
-            <h1>Kashiwazaki Shortcode Collector</h1>
+            <h1>Kashiwazaki SEO Shortcode Collector</h1>
 
             <nav class="nav-tab-wrapper">
                 <a href="?page=kashiwazaki-shortcode-collector&tab=wizard" class="nav-tab <?php echo $active_tab === 'wizard' ? 'nav-tab-active' : ''; ?>">
@@ -197,14 +197,14 @@ class KSC_Admin {
                         <li><strong>thumbnail_position</strong>: サムネイルの表示位置（デフォルト: top）
                             <br><small>top: 上部、left: 左、right: 右</small>
                         </li>
-                        <li><strong>thumbnail_size</strong>: サムネイルのサイズ（デフォルト: medium）
-                            <br><small>thumbnail: 150px、medium: 300px、medium_large: 768px、large: 1024px、full: フルサイズ</small>
+                        <li><strong>thumbnail_size</strong>: サムネイルのサイズ（デフォルト: full）
+                            <br><small>full: フルサイズ、large: 大サイズ、medium: 中サイズ、thumbnail: サムネイル</small>
                         </li>
                     </ul>
                     <p><strong>使用例:</strong></p>
                     <ul>
                         <li><code>[ksc_posts show_thumbnail="false"]</code> - サムネイルを非表示</li>
-                        <li><code>[ksc_posts thumbnail_position="left" thumbnail_size="thumbnail"]</code> - 左配置、小サイズ</li>
+                        <li><code>[ksc_posts thumbnail_position="left" thumbnail_size="medium"]</code> - 左配置、中サイズ</li>
                         <li><code>[ksc_posts thumbnail_position="right" thumbnail_size="large"]</code> - 右配置、大サイズ</li>
                     </ul>
 

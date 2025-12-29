@@ -696,11 +696,11 @@ class KSC_Wizard {
                                     </select>
 
                                     <label for="ksc-thumbnail-size" style="margin-left: 15px;">サイズ:</label>
-                                    <select name="thumbnail_size" id="ksc-thumbnail-size" style="width: 100px;">
-                                        <option value="thumbnail">小</option>
-                                        <option value="medium" selected>中</option>
-                                        <option value="large">大</option>
-                                        <option value="full">フル</option>
+                                    <select name="thumbnail_size" id="ksc-thumbnail-size" style="width: 120px;">
+                                        <option value="full" selected>フルサイズ</option>
+                                        <option value="large">大サイズ</option>
+                                        <option value="medium">中サイズ</option>
+                                        <option value="thumbnail">サムネイル</option>
                                     </select>
                                 </div>
                             </div>
