@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>概要 - Kashiwazaki SEO Shortcode Collector マニュアル</title>
+    <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+<button class="hamburger-btn" aria-label="メニュー">&#9776;</button>
+
+<nav class="sidebar">
+    <div class="sidebar-header">
+        <h2 style="color:#fff;">Shortcode Collector</h2>
+        <span class="version">v1.0.3</span>
+        <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+    </div>
+    <ul>
+        <li class="active"><a href="index.html">概要</a></li>
+        <li><a href="setup.html">インストール・初期設定</a></li>
+        <li><a href="shortcode-wizard.html">ショートコードウィザード</a></li>
+        <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+    </ul>
+</nav>
+
+<main class="content">
+    <h1>Kashiwazaki SEO Shortcode Collector マニュアル</h1>
+    <img src="images/main-visual.png" alt="Kashiwazaki SEO Shortcode Collector メインビジュアル" style="width:100%;border-radius:6px;margin-bottom:16px;">
+    <p class="lead">Kashiwazaki SEO Shortcode Collector は、指定した投稿タイプやカテゴリのコンテンツをショートコードで一覧表示するWordPressプラグインです。グリッド・リスト・カルーセルの3レイアウトに対応し、GUIウィザードでショートコードを簡単に生成できます。</p>
+
+    <p>コンテンツの一覧表示は、サイト内の回遊率向上と内部リンク構造の強化に役立ちます。本プラグインはショートコードで投稿タイプ・カテゴリ指定のコンテンツ一覧をグリッド・リスト・カルーセルの3レイアウトで表示します。</p>
+
+    <h2>主な機能</h2>
+
+    <div class="feature-cards">
+        <div class="feature-card">
+            <span class="icon">&#128220;</span>
+            <h4>コンテンツ収集</h4>
+            <p>投稿タイプ・カテゴリ指定でコンテンツをショートコードで一覧表示</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon">&#128444;</span>
+            <h4>3レイアウト</h4>
+            <p>グリッド(1-6列)・リスト・カルーセルの3形式に対応。レスポンシブ設計</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon">&#9881;</span>
+            <h4>ウィザード</h4>
+            <p>GUI操作でショートコードを自動生成。プレビュー機能付き</p>
+        </div>
+    </div>
+
+    <h2>プラグインの特長</h2>
+
+    <ul>
+        <li>投稿タイプ（投稿・固定ページ・カスタム投稿タイプ）とカテゴリを指定してコンテンツを一覧表示</li>
+        <li>グリッド（1〜6列）、リスト、カルーセルの3種類のレイアウトに対応</li>
+        <li>モバイル・タブレットのブレークポイントを設定可能なレスポンシブ設計</li>
+        <li>GUIウィザードでショートコードを自動生成し、プレビューで確認可能</li>
+        <li>4つのAJAXハンドラーによる管理画面の動的操作</li>
+        <li>フロントエンド: CSS（20KB）+ JavaScript（41KB）</li>
+        <li>管理画面: ウィザードタブ・設定タブの2タブ構成</li>
+    </ul>
+
+    <figure class="infographic">
+        <img src="images/infographics/overview-flow.png" alt="プラグイン概要フロー図">
+        <figcaption>Kashiwazaki SEO Shortcode Collector の全体フロー</figcaption>
+    </figure>
+
+    <h2>SEO・GEO（生成AI最適化）への効果</h2>
+
+    <h3>内部リンク分散の改善</h3>
+    <p>構造化されたコンテンツ一覧は、サイト内の内部リンク分散を改善します。投稿タイプやカテゴリごとに関連コンテンツをまとめて表示することで、検索エンジンのクローラーがサイト構造をより深く理解できるようになります。</p>
+
+    <h3>ユーザーエンゲージメントの向上</h3>
+    <p>グリッド・リストレイアウトではサムネイルと抜粋を表示し、視覚的にコンテンツを訴求します。これによりユーザーの滞在時間やページ遷移が増加し、エンゲージメント指標の改善につながります。</p>
+
+    <h3>モバイルファースト対応</h3>
+    <p>レスポンシブ設計により、モバイル・タブレット・デスクトップそれぞれに最適化されたレイアウトを提供します。モバイルファーストインデックスに対応し、すべてのデバイスで快適なユーザー体験を実現します。</p>
+
+    <h3>クロール可能なURL構造</h3>
+    <p>ショートコードベースのアプローチにより、コンテンツ一覧のURLは静的HTMLとして出力されます。AJAXによる遅延読み込みではないため、検索エンジンのクローラーがすべてのリンクを確実にインデックスできます。</p>
+
+    <h3>生成AI（GEO）への対応</h3>
+    <p>整理されたコンテンツ一覧は、AIが関連コンテンツを発見し、サイト内のトピック構造を理解するのに役立ちます。カテゴリ別・投稿タイプ別の体系的な一覧表示により、LLMベースのシステムがコンテンツの関連性をより正確に把握できます。</p>
+
+    <h2>目次（マニュアル構成）</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width:35%;">ページ</th>
+                <th>内容</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="index.html">概要</a></td>
+                <td>プラグインの機能概要、SEO/GEO効果、動作要件</td>
+            </tr>
+            <tr>
+                <td><a href="setup.html">インストール・初期設定</a></td>
+                <td>インストール手順、レイアウト設定、ブレークポイント設定</td>
+            </tr>
+            <tr>
+                <td><a href="shortcode-wizard.html">ショートコードウィザード</a></td>
+                <td>ウィザードの使い方、ショートコードパラメータ、プレビュー機能</td>
+            </tr>
+            <tr>
+                <td><a href="troubleshooting.html">トラブルシューティング</a></td>
+                <td>よくある問題と対処法、動作要件、技術仕様、アーキテクチャ</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>動作要件</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width:35%;">項目</th>
+                <th>要件</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>WordPress</td>
+                <td>5.0 以上</td>
+            </tr>
+            <tr>
+                <td>PHP</td>
+                <td>7.4 以上</td>
+            </tr>
+            <tr>
+                <td>対応ブラウザ</td>
+                <td>Chrome、Firefox、Safari、Edge（最新版）</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout callout-tip">
+        <div class="callout-title">ヒント</div>
+        <p>インストール後すぐに使い始めたい場合は、<a href="setup.html">インストール・初期設定</a>ページに進んでください。</p>
+    </div>
+
+    <nav class="page-nav">
+        <span></span>
+        <a href="setup.html" class="next">インストール・初期設定 &raquo;</a>
+    </nav>
+
+    <footer class="manual-footer">
+        <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+        <p>プラグイン: Kashiwazaki SEO Shortcode Collector v1.0.3</p>
+    </footer>
+</main>
+
+<div class="lightbox"></div>
+<script src="js/manual.js?v=1"></script>
+</body>
+</html>

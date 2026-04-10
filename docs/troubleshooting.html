@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トラブルシューティング - Kashiwazaki SEO Shortcode Collector マニュアル</title>
+    <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+<button class="hamburger-btn" aria-label="メニュー">&#9776;</button>
+
+<nav class="sidebar">
+    <div class="sidebar-header">
+        <h2 style="color:#fff;">Shortcode Collector</h2>
+        <span class="version">v1.0.3</span>
+        <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+    </div>
+    <ul>
+        <li><a href="index.html">概要</a></li>
+        <li><a href="setup.html">インストール・初期設定</a></li>
+        <li><a href="shortcode-wizard.html">ショートコードウィザード</a></li>
+        <li class="active"><a href="troubleshooting.html">トラブルシューティング</a></li>
+    </ul>
+</nav>
+
+<main class="content">
+    <h1>トラブルシューティング</h1>
+    <p class="lead">Kashiwazaki SEO Shortcode Collector の使用中に発生しうる問題と対処法、動作要件、技術仕様について解説します。</p>
+
+    <h2>よくある問題と対処法</h2>
+
+    <h3>ショートコードが表示されない（テキストのまま出力される）</h3>
+    <table>
+        <thead>
+            <tr>
+                <th style="width:35%;">考えられる原因</th>
+                <th>対処法</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>プラグインが有効化されていない</td>
+                <td>管理画面の「プラグイン」一覧で、本プラグインが有効になっていることを確認してください。</td>
+            </tr>
+            <tr>
+                <td>ショートコードの記述ミス</td>
+                <td>ショートコードのタグ名やパラメータが正しいか確認してください。ウィザードで再生成することを推奨します。</td>
+            </tr>
+            <tr>
+                <td>エディタがショートコードをエスケープしている</td>
+                <td>ブロックエディタの場合は「ショートコード」ブロックを使用してください。クラシックエディタの場合はテキストモードで貼り付けてください。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>コンテンツ一覧が空になる</h3>
+    <table>
+        <thead>
+            <tr>
+                <th style="width:35%;">考えられる原因</th>
+                <th>対処法</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>指定した投稿タイプに公開済みの投稿がない</td>
+                <td>指定した投稿タイプに公開済みのコンテンツが存在するか確認してください。</td>
+            </tr>
+            <tr>
+                <td>カテゴリの指定が間違っている</td>
+                <td>カテゴリのスラッグまたはIDが正しいか確認してください。ウィザードのプレビューで事前に確認できます。</td>
+            </tr>
+            <tr>
+                <td>カスタム投稿タイプのスラッグが間違っている</td>
+                <td>カスタム投稿タイプのスラッグが正確に指定されているか確認してください。大文字・小文字は区別されます。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>レイアウトが崩れる</h3>
+    <table>
+        <thead>
+            <tr>
+                <th style="width:35%;">考えられる原因</th>
+                <th>対処法</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>テーマのCSSとの競合</td>
+                <td>ブラウザの開発者ツールで、テーマのCSSがプラグインのスタイルを上書きしていないか確認してください。</td>
+            </tr>
+            <tr>
+                <td>ブレークポイントの設定が不適切</td>
+                <td>設定タブでモバイル・タブレットのブレークポイント値を確認し、テーマのブレークポイントと整合性があるか確認してください。</td>
+            </tr>
+            <tr>
+                <td>キャッシュプラグインの影響</td>
+                <td>キャッシュプラグインのキャッシュをクリアしてから表示を確認してください。CSS/JSの結合・圧縮機能が干渉している場合は、本プラグインのファイルを除外設定してください。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>ウィザードが動作しない</h3>
+    <table>
+        <thead>
+            <tr>
+                <th style="width:35%;">考えられる原因</th>
+                <th>対処法</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>JavaScriptエラーが発生している</td>
+                <td>ブラウザの開発者ツール（コンソール）でJavaScriptエラーがないか確認してください。他のプラグインとのJS競合が原因の場合があります。</td>
+            </tr>
+            <tr>
+                <td>AJAX通信がブロックされている</td>
+                <td>セキュリティプラグインやサーバーの設定でAJAX通信がブロックされていないか確認してください。</td>
+            </tr>
+            <tr>
+                <td>jQueryが読み込まれていない</td>
+                <td>テーマまたは他のプラグインがjQueryの読み込みを無効化していないか確認してください。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout callout-tip">
+        <div class="callout-title">ヒント</div>
+        <p>問題が解決しない場合は、一度プラグインを無効化してから再有効化してみてください。設定値はデータベースに保持されるため、再有効化後も設定は維持されます。</p>
+    </div>
+
+    <h2>動作要件</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width:35%;">項目</th>
+                <th>要件</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>WordPress</td>
+                <td>5.0 以上</td>
+            </tr>
+            <tr>
+                <td>PHP</td>
+                <td>7.4 以上</td>
+            </tr>
+            <tr>
+                <td>対応ブラウザ</td>
+                <td>Chrome、Firefox、Safari、Edge（最新版）</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>技術仕様</h2>
+
+    <ul>
+        <li><strong>データ保存:</strong> wp_options (ksc_mobile_breakpoint, ksc_tablet_breakpoint, ksc_options)</li>
+        <li><strong>カスタムテーブル:</strong> なし</li>
+        <li><strong>外部通信:</strong> なし</li>
+        <li><strong>Cronイベント:</strong> なし</li>
+        <li><strong>メール送信:</strong> なし</li>
+        <li><strong>セキュリティ:</strong> nonce検証、manage_options権限チェック、入出力サニタイズ</li>
+    </ul>
+
+    <h2>アーキテクチャ</h2>
+
+    <p>Kashiwazaki SEO Shortcode Collector は以下のコンポーネントで構成されています。</p>
+
+    <h3>フロントエンド</h3>
+    <ul>
+        <li>CSS（約20KB）で3種類のレイアウトとレスポンシブ対応を実装</li>
+        <li>JavaScript（約41KB）でカルーセル動作とインタラクションを実装</li>
+        <li>ショートコードベースの静的HTML出力（検索エンジンがクロール可能）</li>
+    </ul>
+
+    <h3>バックエンド</h3>
+    <ul>
+        <li>設定データは <code>wp_options</code> テーブルに保存（ksc_mobile_breakpoint、ksc_tablet_breakpoint、ksc_options）</li>
+        <li>管理画面はウィザードタブ・設定タブの2タブ構成</li>
+        <li>4つのAJAXハンドラーでウィザードの動的操作を実現</li>
+        <li>すべてのAJAX通信にnonce検証を実施</li>
+    </ul>
+
+    <h3>ショートコード処理フロー</h3>
+
+    <div class="step">
+        <span class="step-number">1</span>
+        <div class="step-body">
+            <p>ショートコードがパースされ、投稿タイプ・カテゴリ・レイアウトなどのパラメータが抽出されます。</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">2</span>
+        <div class="step-body">
+            <p><code>WP_Query</code> を使用して、指定された条件に合致するコンテンツを取得します。</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">3</span>
+        <div class="step-body">
+            <p>取得したコンテンツを指定されたレイアウト（グリッド・リスト・カルーセル）のHTMLテンプレートに流し込みます。</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">4</span>
+        <div class="step-body">
+            <p>生成されたHTMLがショートコードの位置に出力されます。必要なCSS/JSも自動的にエンキューされます。</p>
+        </div>
+    </div>
+
+    <div class="callout callout-note">
+        <div class="callout-title">補足</div>
+        <p>カスタムテーブルやCronイベントは使用しないため、プラグインの削除時にデータベースに不要なデータが残ることはありません。<code>wp_options</code> の設定値のみが削除対象です。</p>
+    </div>
+
+    <nav class="page-nav">
+        <a href="shortcode-wizard.html" class="prev">&laquo; ショートコードウィザード</a>
+        <span></span>
+    </nav>
+
+    <footer class="manual-footer">
+        <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+        <p>プラグイン: Kashiwazaki SEO Shortcode Collector v1.0.3</p>
+    </footer>
+</main>
+
+<div class="lightbox"></div>
+<script src="js/manual.js?v=1"></script>
+</body>
+</html>

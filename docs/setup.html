@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インストール・初期設定 - Kashiwazaki SEO Shortcode Collector マニュアル</title>
+    <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+<button class="hamburger-btn" aria-label="メニュー">&#9776;</button>
+
+<nav class="sidebar">
+    <div class="sidebar-header">
+        <h2 style="color:#fff;">Shortcode Collector</h2>
+        <span class="version">v1.0.3</span>
+        <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+    </div>
+    <ul>
+        <li><a href="index.html">概要</a></li>
+        <li class="active"><a href="setup.html">インストール・初期設定</a></li>
+        <li><a href="shortcode-wizard.html">ショートコードウィザード</a></li>
+        <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+    </ul>
+</nav>
+
+<main class="content">
+    <h1>インストール・初期設定</h1>
+    <p class="lead">Kashiwazaki SEO Shortcode Collector のインストール方法と、レイアウト・ブレークポイントなどの基本設定を説明します。</p>
+
+    <h2>インストール手順</h2>
+
+    <div class="step">
+        <span class="step-number">1</span>
+        <div class="step-body">
+            <p>WordPress管理画面から <strong>プラグイン &gt; 新規追加</strong> に移動し、「Kashiwazaki SEO Shortcode Collector」を検索します。または、プラグインのZIPファイルを <strong>プラグイン &gt; 新規追加 &gt; プラグインのアップロード</strong> からアップロードします。</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">2</span>
+        <div class="step-body">
+            <p>「今すぐインストール」をクリックし、インストール完了後「有効化」をクリックします。</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">3</span>
+        <div class="step-body">
+            <p>管理画面の左メニューに「Kashiwazaki SEO Shortcode Collector」が追加されます。クリックして設定画面を開きます。管理画面はウィザードタブと設定タブの2タブ構成です。</p>
+        </div>
+    </div>
+
+    <figure class="screenshot">
+        <img src="images/screenshots/00-menu-location.png" alt="管理画面メニューの位置" class="lightbox-trigger">
+        <figcaption>管理画面の左メニューにプラグインが追加されます</figcaption>
+    </figure>
+
+    <div class="callout callout-tip">
+        <div class="callout-title">ヒント</div>
+        <p>有効化後、まずウィザードタブでショートコードを生成し、投稿や固定ページに貼り付けることですぐにコンテンツ一覧を表示できます。</p>
+    </div>
+
+    <h2>レイアウト設定</h2>
+
+    <p>ショートコードで出力するコンテンツ一覧のレイアウトを3種類から選択できます。</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width:35%;">レイアウト</th>
+                <th>説明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>グリッド</td>
+                <td>1〜6列のグリッド表示。サムネイル・タイトル・抜粋をカード形式で表示します。コンテンツ量が多いページに最適です。</td>
+            </tr>
+            <tr>
+                <td>リスト</td>
+                <td>縦並びのリスト表示。サムネイルとテキストを横並びに配置します。ブログ記事一覧に適しています。</td>
+            </tr>
+            <tr>
+                <td>カルーセル</td>
+                <td>横スクロール形式のスライダー表示。限られたスペースで多くのコンテンツを表示できます。</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h3>グリッドの列数設定</h3>
+    <p>グリッドレイアウトでは、1列から6列までの列数を指定できます。列数はデスクトップ表示時の値で、モバイル・タブレットではブレークポイント設定に基づいて自動的に列数が調整されます。</p>
+
+    <div class="callout callout-note">
+        <div class="callout-title">補足</div>
+        <p>列数が多いほどコンテンツは小さく表示されます。サムネイルと抜粋のバランスを考慮して、2〜4列が推奨です。</p>
+    </div>
+
+    <h2>レスポンシブ設定（ブレークポイント）</h2>
+
+    <p>モバイルとタブレットのブレークポイントを設定し、デバイスに応じたレイアウトの切り替えポイントを制御できます。</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width:35%;">設定項目</th>
+                <th>説明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>モバイルブレークポイント</td>
+                <td>この幅以下でモバイルレイアウトに切り替えます。デフォルトはテーマに依存します。</td>
+            </tr>
+            <tr>
+                <td>タブレットブレークポイント</td>
+                <td>この幅以下でタブレットレイアウトに切り替えます。モバイルブレークポイントより大きい値を設定してください。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout callout-warning">
+        <div class="callout-title">注意</div>
+        <p>ブレークポイントの値を変更した場合、キャッシュプラグインのキャッシュをクリアしてからフロントエンドの表示を確認してください。</p>
+    </div>
+
+    <h2>基本的なショートコード</h2>
+
+    <p>最もシンプルなショートコードの記述例です。詳細なパラメータは<a href="shortcode-wizard.html">ショートコードウィザード</a>ページで解説します。</p>
+
+    <pre><code>[ksc_collector post_type="post" layout="grid" columns="3"]</code></pre>
+
+    <p>上記のショートコードは、投稿タイプ「投稿」のコンテンツを3列グリッドで一覧表示します。</p>
+
+    <div class="callout callout-tip">
+        <div class="callout-title">ヒント</div>
+        <p>ショートコードのパラメータを覚える必要はありません。<a href="shortcode-wizard.html">ウィザード</a>を使えば、GUI操作でショートコードを自動生成できます。</p>
+    </div>
+
+    <nav class="page-nav">
+        <a href="index.html" class="prev">&laquo; 概要</a>
+        <a href="shortcode-wizard.html" class="next">ショートコードウィザード &raquo;</a>
+    </nav>
+
+    <footer class="manual-footer">
+        <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+        <p>プラグイン: Kashiwazaki SEO Shortcode Collector v1.0.3</p>
+    </footer>
+</main>
+
+<div class="lightbox"></div>
+<script src="js/manual.js?v=1"></script>
+</body>
+</html>

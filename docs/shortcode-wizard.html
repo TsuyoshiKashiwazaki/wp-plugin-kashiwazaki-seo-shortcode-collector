@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ショートコードウィザード - Kashiwazaki SEO Shortcode Collector マニュアル</title>
+    <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+<button class="hamburger-btn" aria-label="メニュー">&#9776;</button>
+
+<nav class="sidebar">
+    <div class="sidebar-header">
+        <h2 style="color:#fff;">Shortcode Collector</h2>
+        <span class="version">v1.0.3</span>
+        <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+    </div>
+    <ul>
+        <li><a href="index.html">概要</a></li>
+        <li><a href="setup.html">インストール・初期設定</a></li>
+        <li class="active"><a href="shortcode-wizard.html">ショートコードウィザード</a></li>
+        <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+    </ul>
+</nav>
+
+<main class="content">
+    <h1>ショートコードウィザード</h1>
+    <p class="lead">GUIベースのウィザードでショートコードを自動生成する方法と、利用可能なショートコードパラメータについて解説します。</p>
+
+    <h2>ウィザードの使い方</h2>
+
+    <p>管理画面の「Kashiwazaki SEO Shortcode Collector」から「ウィザード」タブを開くと、ショートコード生成ウィザードが表示されます。</p>
+
+    <div class="step">
+        <span class="step-number">1</span>
+        <div class="step-body">
+            <p>管理画面の左メニューから <strong>Kashiwazaki SEO Shortcode Collector</strong> をクリックし、<strong>ウィザード</strong>タブを選択します。</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">2</span>
+        <div class="step-body">
+            <p><strong>投稿タイプ</strong>を選択します。投稿・固定ページ・カスタム投稿タイプから選択できます。選択すると、対応するカテゴリが自動的に読み込まれます。</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">3</span>
+        <div class="step-body">
+            <p>必要に応じて<strong>カテゴリ</strong>を選択します。特定のカテゴリに絞り込んでコンテンツを表示したい場合に指定します。</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">4</span>
+        <div class="step-body">
+            <p><strong>レイアウト</strong>（グリッド・リスト・カルーセル）と、グリッドの場合は<strong>列数</strong>（1〜6列）を選択します。</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">5</span>
+        <div class="step-body">
+            <p>「プレビュー」ボタンをクリックすると、設定内容に基づいたコンテンツ一覧のプレビューが表示されます。</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">6</span>
+        <div class="step-body">
+            <p>プレビューを確認後、「ショートコードをコピー」ボタンで生成されたショートコードをクリップボードにコピーし、投稿や固定ページのエディタに貼り付けます。</p>
+        </div>
+    </div>
+
+    <div class="callout callout-tip">
+        <div class="callout-title">ヒント</div>
+        <p>ウィザードでの投稿タイプ選択やカテゴリ読み込みはAJAXで動的に処理されるため、ページのリロードなしでスムーズに操作できます。</p>
+    </div>
+
+    <h2>ショートコードパラメータ</h2>
+
+    <p>ウィザードを使わずに手動でショートコードを記述する場合は、以下のパラメータを使用できます。</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width:35%;">パラメータ</th>
+                <th>説明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>post_type</td>
+                <td>取得する投稿タイプを指定します。<code>post</code>（投稿）、<code>page</code>（固定ページ）、またはカスタム投稿タイプのスラッグを指定します。</td>
+            </tr>
+            <tr>
+                <td>category</td>
+                <td>カテゴリのスラッグまたはIDを指定します。省略した場合はすべてのカテゴリが対象になります。</td>
+            </tr>
+            <tr>
+                <td>layout</td>
+                <td>レイアウトを指定します。<code>grid</code>（グリッド）、<code>list</code>（リスト）、<code>carousel</code>（カルーセル）から選択します。</td>
+            </tr>
+            <tr>
+                <td>columns</td>
+                <td>グリッドレイアウト時の列数を指定します（1〜6）。グリッド以外のレイアウトでは無視されます。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>ショートコードの記述例</h3>
+
+    <p>投稿を3列グリッドで表示:</p>
+    <pre><code>[ksc_collector post_type="post" layout="grid" columns="3"]</code></pre>
+
+    <p>特定カテゴリの投稿をリスト表示:</p>
+    <pre><code>[ksc_collector post_type="post" category="news" layout="list"]</code></pre>
+
+    <p>カスタム投稿タイプをカルーセル表示:</p>
+    <pre><code>[ksc_collector post_type="product" layout="carousel"]</code></pre>
+
+    <h2>プレビュー機能</h2>
+
+    <p>ウィザードのプレビュー機能では、ショートコードの出力結果を管理画面上で事前に確認できます。プレビューはAJAXで動的に生成されるため、設定を変更するたびにリアルタイムで結果を確認できます。</p>
+
+    <div class="callout callout-warning">
+        <div class="callout-title">注意</div>
+        <p>プレビューはあくまで管理画面上の表示です。フロントエンドではテーマのCSSが適用されるため、実際の見た目は若干異なる場合があります。</p>
+    </div>
+
+    <h2>AJAXハンドラー</h2>
+
+    <p>本プラグインは管理画面のウィザード機能を実現するために、4つのAJAXハンドラーを使用しています。</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width:35%;">ハンドラー</th>
+                <th>機能</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>投稿タイプ取得</td>
+                <td>登録されている投稿タイプの一覧を動的に取得します。</td>
+            </tr>
+            <tr>
+                <td>カテゴリ取得</td>
+                <td>選択された投稿タイプに紐づくカテゴリを取得します。</td>
+            </tr>
+            <tr>
+                <td>プレビュー生成</td>
+                <td>設定されたパラメータに基づいてコンテンツ一覧のプレビューを生成します。</td>
+            </tr>
+            <tr>
+                <td>ショートコード生成</td>
+                <td>選択された設定からショートコード文字列を生成します。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout callout-note">
+        <div class="callout-title">補足</div>
+        <p>AJAXハンドラーはすべてnonce検証を行い、管理者権限を持つユーザーのみがアクセスできます。</p>
+    </div>
+
+    <nav class="page-nav">
+        <a href="setup.html" class="prev">&laquo; インストール・初期設定</a>
+        <a href="troubleshooting.html" class="next">トラブルシューティング &raquo;</a>
+    </nav>
+
+    <footer class="manual-footer">
+        <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+        <p>プラグイン: Kashiwazaki SEO Shortcode Collector v1.0.3</p>
+    </footer>
+</main>
+
+<div class="lightbox"></div>
+<script src="js/manual.js?v=1"></script>
+</body>
+</html>
